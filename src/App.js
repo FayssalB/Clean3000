@@ -67,36 +67,43 @@ const App = (props) => {
 
         <div className='right-side'>
           <h1>Avis de passage</h1>
+
+          <img style={{ width: 100 }} src={require("./img/logo-clean3000-transparent.png")} alt="" />
+
           <div className='info-container' >
 
-            <label htmlFor="nom">Nom entreprise/ou client : </label>
-            <input type="text" name='nom' value={nom} required onChange={(e) => { setNom(e.target.value) }} />
-            {console.log(nom)}
+
+            <input id="input-nom" type="text" name='nom' value={nom} placeholder="Nom entreprise/client" onChange={(e) => { setNom(e.target.value) }} />
+
 
             <br></br>
 
-            <label htmlFor="date">Notre technicien est intervenu pour l'entretien de la vitrerie le</label>
-            <input type="date" name='date' value={date} required onChange={(e) => { setDate(e.target.value) }} />
+            <label for="date">Date d'intervention</label>
+            <br></br>
+            <input type="date" name='date' value={date} onChange={(e) => { setDate(e.target.value) }} />
 
-            <h4>Observations :</h4>
-            <input type='text' value={comment} required onChange={(e) => { setComment(e.target.value) }} />
+
+            <input type='text' value={comment} placeholder="Observations" onChange={(e) => { setComment(e.target.value) }} />
 
 
             <p>Merci de votre confiance.</p>
 
-            <input type="submit" value="Valider les infos" onClick={() => addAvis()} />
+            <input id="submit-button" type="submit" value="Valider les infos" onClick={() => addAvis()} />
           </div>
 
         </div>
       </div>
-      <h1>Tous les avis</h1>
 
-      <ListePassages datas={infos} />
+
+      <h1>Tous les avis</h1>
+      <div className='list-container'>
+        <ListePassages datas={infos} />
+      </div>
 
       <footer>
         <div className='footer'>
           Nos réseaux
-          <i></i>
+
         </div>
       </footer>
 

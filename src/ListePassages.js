@@ -18,7 +18,7 @@ const ListePassages = ({ datas }) => {
     )
   })
   return (
-    <div className='list-container'>
+    <div>
       {allDatas}
     </div>
   )
