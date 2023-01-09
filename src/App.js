@@ -73,7 +73,7 @@ const App = (props) => {
           <div className='info-container' >
 
 
-            <input id="input-nom" type="text" name='nom' value={nom} placeholder="Nom entreprise/client" onChange={(e) => { setNom(e.target.value) }} />
+            <input id="input-nom" type="text" name='nom' value={nom} placeholder="Nom entreprise / client" onChange={(e) => { setNom(e.target.value) }} />
 
 
             <br></br>
@@ -102,7 +102,8 @@ const App = (props) => {
 
       <footer>
         <div className='footer'>
-          Nos réseaux
+          <p>Nos reseaux </p>
+          <p>Site vitrine lol</p>
 
         </div>
       </footer>
