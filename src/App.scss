@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.App{
+
+    h1{
+        text-align: center;
+    }
+    div.logo-container{
+        display: flex;
+        justify-content: center;
+    }
+    .logo{
+        width: 40%;
+        background-color: rgb(58, 50, 50);
+        padding-bottom: 1.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .info-container{
+        border: solid 1px gray;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+}
