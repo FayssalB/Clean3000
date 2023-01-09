@@ -5,26 +5,20 @@ const ListePassages = ({ datas }) => {
   const allDatas = datas.map(data => {
     return (
 
-      <div className="">
+      <div className="info-container">
 
-        <h1>Tous les avis</h1>
+        <p>Nom entreprise/ou client: <span>{data.nom}</span></p>
 
-        <div className='info-container' >
+        <p>Date d'intervention : <span>{data.date}</span> </p>
 
-          <p>Nom entreprise/ou client: {data.nom}</p>
-
-          <p>Date d'intervention : {data.date} </p>
-
-          <h4>Observations :</h4>
-          <p>{data.comment}</p>
-
-        </div>
+        <h4>Observations :</h4>
+        <p><span>{data.comment}</span></p>
 
       </div>
     )
   })
   return (
-    <div className=''>
+    <div className='list-container'>
       {allDatas}
     </div>
   )

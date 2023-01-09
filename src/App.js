@@ -15,20 +15,20 @@ const App = (props) => {
   const [date, setDate] = useState("")
   const [infos, setInfos] = useState([
     {
-      id:Date.now(),
+      id: Date.now(),
       nom: "Watch",
       comment: "excellent",
       date
     }
   ]);
 
-  const addPassage =()=>{
+  const addAvis = () => {
     const newInfo = {
-      id:Date.now(),
+      id: Date.now(),
       nom,
       comment,
       date
-    } 
+    }
     setInfos([...infos, newInfo])
     setNom("")
     setComment("")
@@ -40,8 +40,12 @@ const App = (props) => {
 
       <header>
         <nav>
+          <div>
+            <img className='logo' src={require("./img/logo-clean3000-transparent.png")} alt="" />
+          </div>
           <ul>
-            <li></li>
+            <li><NavLink>Formulaire</NavLink> </li>
+            <li><NavLink>Liste Avis</NavLink> </li>
           </ul>
         </nav>
       </header>
@@ -52,35 +56,49 @@ const App = (props) => {
 
 
       {/* //////// AVIS DE PASSAGE /////////////*/}
-      <div className='logo-container'>
-        <img className='logo' src={require("./img/logo-clean3000-transparent.png")} alt="" />
+
+
+
+      <div className='section-form'>
+
+        <div className='left-side'>
+          <img className='image-Avis' src={require("./img/vitre1.png")} alt="" />
+        </div>
+
+        <div className='right-side'>
+          <h1>Avis de passage</h1>
+          <div className='info-container' >
+
+            <label htmlFor="nom">Nom entreprise/ou client : </label>
+            <input type="text" name='nom' value={nom} required onChange={(e) => { setNom(e.target.value) }} />
+            {console.log(nom)}
+
+            <br></br>
+
+            <label htmlFor="date">Notre technicien est intervenu pour l'entretien de la vitrerie le</label>
+            <input type="date" name='date' value={date} required onChange={(e) => { setDate(e.target.value) }} />
+
+            <h4>Observations :</h4>
+            <input type='text' value={comment} required onChange={(e) => { setComment(e.target.value) }} />
+
+
+            <p>Merci de votre confiance.</p>
+
+            <input type="submit" value="Valider les infos" onClick={() => addAvis()} />
+          </div>
+
+        </div>
       </div>
+      <h1>Tous les avis</h1>
 
-      <h1>Avis de passage</h1>
+      <ListePassages datas={infos} />
 
-      <div className='info-container' >
-
-        <label htmlFor="nom">Nom entreprise/ou client : </label>
-        <input type="text" name='nom' value={nom} onChange={(e)=>{setNom(e.target.value)}}/>
-       {console.log(nom)}
-
-        <br></br>
-
-        <label htmlFor="date">Notre technicien est intervenu pour l'entretien de la vitrerie le</label>
-        <input  type="date" name='date' value={date} onChange={(e)=>{setDate(e.target.value)}}/>
-
-        <h4>Observations :</h4>
-        <input type='text' value={comment} onChange={(e)=>{setComment(e.target.value)}} />
-        
-
-        <p>Merci de votre confiance.</p>
-
-        <input type="submit" value="Valider les infos" onClick={()=> addPassage()} />
-      </div>
-
-      {console.log(infos)}
-
-      <ListePassages datas={infos}/>
+      <footer>
+        <div className='footer'>
+          Nos réseaux
+          <i></i>
+        </div>
+      </footer>
 
     </div>
   );
