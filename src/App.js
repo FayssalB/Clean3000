@@ -1,15 +1,11 @@
 import { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './App.scss';
 import ListePassages from './ListePassages';
 
 const App = (props) => {
 
-  const navigate = useNavigate();
-  const goToHome = () => {
-    navigate("/Avis");
-  }
-
+  
   const [nom, setNom] = useState("")
   const [comment, setComment] = useState("")
   const [date, setDate] = useState("")
@@ -18,9 +14,16 @@ const App = (props) => {
       id: Date.now(),
       nom: "Watch",
       comment: "excellent",
-      date
+      date: "2023-01-26"
     }
   ]);
+
+  const navigate = useNavigate();
+
+  const goToHome = (props) => {
+    navigate("/Avis", {state : props});
+  }
+  
 
   const addAvis = () => {
     const newInfo = {
@@ -44,14 +47,10 @@ const App = (props) => {
             <img className='logo' src={require("./img/logo-clean3000-transparent.png")} alt="" />
           </div>
           <ul>
-            <li><NavLink>Formulaire</NavLink> </li>
-            <li><NavLink>Liste Avis</NavLink> </li>
+            <li className='li' onClick={()=>goToHome({infos})}>Tous les avis</li>
           </ul>
         </nav>
       </header>
-      {/* <div>
-        <img src={require("./img/logo-clean3000.png")} style={{}} alt="" />
-      </div> */}
 
 
 
@@ -78,7 +77,7 @@ const App = (props) => {
 
             <br></br>
 
-            <label for="date">Date d'intervention</label>
+            <label htmlFor="date">Date d'intervention</label>
             <br></br>
             <input type="date" name='date' value={date} onChange={(e) => { setDate(e.target.value) }} />
 
@@ -95,16 +94,15 @@ const App = (props) => {
       </div>
 
 
-      <h1>Tous les avis</h1>
+      {/* <h1>Tous les avis</h1>
       <div className='list-container'>
         <ListePassages datas={infos} />
-      </div>
+      </div> */}
 
       <footer>
         <div className='footer'>
           <p>Nos reseaux </p>
           <p>Site vitrine lol</p>
-
         </div>
       </footer>
 
